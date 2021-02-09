@@ -108,7 +108,8 @@ DROP PROCEDURE SP_ListarProducto
 /*6.- Crear un SP que muestre todo sobre un producto que busque un cliente
 Nota: el cliente puede ingresar parte del nombre del producto, en otras palabra mostrar todo 
 lo que coincida con lo ingresado por el cliente. EXEC SP_ListarProducto(crema)*/
-CREATE PROCEDURE SP_ListarProducto @NombreProducto VARCHAR(20)
+CREATE PROCEDURE SP_ListarProducto 
+@NombreProducto VARCHAR(20)
 AS 
 	SELECT *
 	FROM Products P

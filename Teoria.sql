@@ -158,3 +158,48 @@ INSERT INTO Internacional VALUES(1,'USA')
 INSERT INTO Nacional VALUES(5,'CDMX')
 INSERT INTO Internacional VALUES(3,'URSS')
 
+
+--PROCEDIMIENTOS ALMACENADOS
+	--SP sin parametros de ningun tipo
+CREATE PROCEDURE SP_DineroStockProvedor
+AS 
+	SELECT Suppliers.CompanyName, SUM(UnitsInStock*UnitPrice) AS DineroStock
+	FROM Products INNER JOIN Suppliers
+	ON(Products.SupplierID=Suppliers.SupplierID)
+	GROUP BY Suppliers.CompanyName
+	ORDER BY DineroStock
+EXEC SP_DineroStockProvedor
+DROP PROCEDURE SP_DineroStockProvedor
+EXEC sp_helpconstraint products
+
+	--SP parametros de entrada
+CREATE PROCEDURE SP_DineroStockUNProvedor
+@Proveedor_ID int--paramentro de entrada /no se epone DECLARE
+AS --Se declara variable
+	SELECT Suppliers.CompanyName, SUM(UnitsInStock*UnitPrice) AS DineroStock
+	FROM Products INNER JOIN Suppliers
+	ON(Products.SupplierID=Suppliers.SupplierID)
+	WHERE Products.SupplierID=@Proveedor_ID
+	GROUP BY Suppliers.CompanyName
+EXEC SP_DineroStockUNProvedor 10
+
+	--SP parametros de entrada y de salida
+CREATE PROCEDURE SP_DineroStockSalida
+@Proveedor_ID INT,
+@DineroStock FLOAT OUTPUT
+AS 
+	BEGIN
+		SET @DineroStock=(
+			SELECT SUM(UnitsInStock*UnitPrice) AS DineroStock
+			FROM Products INNER JOIN Suppliers
+			ON(Products.SupplierID=Suppliers.SupplierID)
+			WHERE Products.SupplierID=@Proveedor_ID
+			GROUP BY Suppliers.CompanyName)
+	END
+DECLARE @Dinero FLOAT
+EXEC SP_DineroStockSalida 10, @Dinero OUTPUT
+SELECT @Dinero
+
+DECLARE @Dinero FLOAT
+EXEC SP_DineroStockSalida 10, @Dinero OUTPUT
+SELECT @Dinero= 100 
