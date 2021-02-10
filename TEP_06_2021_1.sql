@@ -28,13 +28,13 @@ GROUP BY CompanyName
 HAVING MAX(UnitPrice) < 200 AND MIN(UnitPrice)>30
 
 --3 Ejercicio ¿De que Proveedor tenemos más dinero en almacén? Un solo registro sin uso de TOP
-SELECT SupplierID, SUM(UnitPrice*UnitsInStock) TotalDinero
+SELECT SupplierID, SUM(UnitPrice*UnitsInStock) AS TotalDinero
 FROM Products
 GROUP BY SupplierID
 HAVING SUM(UnitPrice*UnitsInStock)=(
-	SELECT MAX(Tabla.Maximo)
+	SELECT MAX(Tabla.Total)
 	FROM(
-		SELECT SupplierID, SUM(UnitPrice*UnitsInStock) AS Maximo
+		SELECT SupplierID, SUM(UnitPrice*UnitsInStock) AS Total
 		FROM Products
 		GROUP BY SupplierID
 	) AS Tabla
