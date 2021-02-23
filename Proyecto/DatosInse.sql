@@ -1,0 +1,66 @@
+--PAQUETES
+INSERT INTO Paquete VALUES ('AD_42562', 'Gumaro', 1, 'Edo. Mex');
+INSERT INTO Paquete VALUES ('HJ_72456', 'Zenzontle', 1.8, 'Guadalajara');
+INSERT INTO Paquete VALUES ('WR_73254', 'Hidalgo', 2, 'Guerrero');
+INSERT INTO Paquete VALUES ('GA_53255', 'Wilfrido', 1.8, 'CDMX');
+INSERT INTO Paquete VALUES ('NB_76245', '100 metros', 1.5, 'CDMX');
+INSERT INTO Paquete VALUES ('DD_11564', 'São Paulo', 0.5, 'Brasil');
+INSERT INTO Paquete VALUES ('NW_61663', 'Bourke', 1, 'Australia');
+INSERT INTO Paquete VALUES ('LJ_42322', 'Portobello', 2, 'Inglaterra');
+INSERT INTO Paquete VALUES ('XC_62672', 'Marceau', 1.9, 'Francia');
+INSERT INTO Paquete VALUES ('BN_24324', 'Erdgeschoss', 0.9, 'Alemania');
+
+--RUTAS
+INSERT INTO Rutas VALUES (54, 'CDMX-Monterrey');
+INSERT INTO Rutas VALUES (55, 'CDMX-Guadalajara');
+INSERT INTO Rutas VALUES (56, 'CDMX-Mérida');
+INSERT INTO Rutas VALUES (57, 'CDMX-Tijuana');
+
+--LOCALES
+INSERT INTO C_Local VALUES (121, 'Bijoux Blues');
+INSERT INTO C_Local VALUES (652, 'Kleinmarkthalle');
+INSERT INTO C_Local VALUES (878, 'L Atelier le Thiers');
+INSERT INTO C_Local VALUES (897, 'Viktualienmarkt');
+INSERT INTO C_Local VALUES (915, 'Anand Atelier');
+
+--PAQUETES NACIONALES
+INSERT INTO Nacional VALUES ('HJ_72456', 'Zenzontle', 'HEGA280874142', 56);
+INSERT INTO Nacional VALUES ('AD_42562', 'Cuautitlan','GADM070860623', 55);
+INSERT INTO Nacional VALUES ('WR_73254', 'Actopan', 'CAPR161280872', 56);
+INSERT INTO Nacional VALUES ('GA_53255','CDMX', 'FAGF220779112', 56);
+INSERT INTO Nacional VALUES ('NB_76245','CDMX',  'FAGF220779112', 56);
+
+--PAQUETES INTERNACIONALES
+INSERT INTO Internacional VALUES ('BN_24324','Alemana', 652, '24/12/2020');
+INSERT INTO Internacional VALUES ('XC_62672', 'Francesa', 121, '01/01/2021');
+INSERT INTO Internacional VALUES ('LJ_42322', 'Alemana', 897, '29/12/2020');
+INSERT INTO Internacional VALUES ('NW_61663', 'Europea', 652, '11/01/2021');
+INSERT INTO Internacional VALUES ('DD_11564','Americana',  915,'30/12/2020'); 
+
+--CONDUCTORES
+INSERT INTO Conductor VALUES ('HEGA280874142', 'Agustin', 'Gumaro', 55);
+INSERT INTO Conductor VALUES ('GADM070860623', 'Mariana', 'Zenzontle', 54);
+INSERT INTO Conductor VALUES ('CAPR161280872', 'Roberto', 'Xalapa', 56);
+INSERT INTO Conductor VALUES ('FAGF220779112', 'Francisco', 'CDMX', 55);
+INSERT INTO Conductor VALUES ('JHAR231155723', 'Javier', 'Hermosillo', 54);
+
+--PAQUETES NACIONALES
+INSERT INTO Nacional VALUES ('HJ_72456', 'Zenzontle', 'HEGA280874142', 56);
+INSERT INTO Nacional VALUES ('AD_42562', 'Cuautitlan','GADM070860623', 55);
+INSERT INTO Nacional VALUES ('WR_73254', 'Actopan', 'CAPR161280872', 56);
+INSERT INTO Nacional VALUES ('GA_53255','CDMX', 'FAGF220779112', 56);
+INSERT INTO Nacional VALUES ('NB_76245','CDMX',  'FAGF220779112', 56);
+
+--CAMIONES
+INSERT INTO Camion VALUES ('423-GDA', 1250, 'CDMX');
+INSERT INTO Camion VALUES ('653-SGS', 1000, 'Monterrey');
+INSERT INTO Camion VALUES ('235-JYD', 950, 'CDMX');
+INSERT INTO Camion VALUES ('135-MXB', 900, 'Tijuana');
+INSERT INTO Camion VALUES ('763-BAA', 400, 'Guadalajara');
+
+--CONDUTORES-CAMIONES
+INSERT INTO Conductor_Camion VALUES ('HEGA280874142', '235-JYD', '20/12/2020');
+INSERT INTO Conductor_Camion VALUES ('GADM070860623', '763-BAA', '22/12/2020');
+INSERT INTO Conductor_Camion VALUES ('CAPR161280872', '135-MXB', '23/12/2020');
+INSERT INTO Conductor_Camion VALUES ('FAGF220779112', '653-SGS', '21/12/2020');
+INSERT INTO Conductor_Camion VALUES ('JHAR231155723', '423-GDA', '19/12/2020');
